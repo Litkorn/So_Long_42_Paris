@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 04:26:22 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/07/19 04:56:44 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/20 16:34:15 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,52 @@
 # include "libft/libft.h"
 # include "mlx/mlx.h"
 
+# define W 119
+# define UP 65362
+# define S 115
+# define DOWN 65364
+# define A 97
+# define LEFT 65361
+# define D 100
+# define RIGHT 65363
+# define ESC 65307
 
+typedef struct s_data
+{
+	int		pos_x;
+	int		pos_y;
+	int		y;
+	int		x;
+	int		img_x;
+	int		img_y;
+	int		d;
+	int		e;
+	int		p;
+	int		co;
+	char	**map;
+}				t_data;
+
+typedef struct s_vars
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+}				t_vars;
+
+//parsing.c
+int		ft_parsing(char **av, t_data *d);
+//get_map.c
+int		get_map(char *path, t_data *d);
+//parse_map.c
+int		parse_map(t_data *d);
+//check_content.c
+int		check_content_map(t_data *d);
+
+//check_error.c
+int		check_error(int e);
+
+//clean_all.c
+void	ft_clean(t_data *d);
+void	ft_destroy(t_vars *v);
 
 #endif

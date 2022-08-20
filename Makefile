@@ -6,13 +6,19 @@
 #    By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 03:41:14 by cleibeng          #+#    #+#              #
-#    Updated: 2022/07/19 04:59:26 by cleibeng         ###   ########.fr        #
+#    Updated: 2022/08/20 16:33:23 by cleibeng         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 SRCS = so_long.c\
+	   utils/check_error.c\
+	   utils/get_map.c\
+	   utils/parsing.c\
+	   utils/parse_map.c\
+	   utils/clean_all.c\
+	   utils/check_content.c\
 
 OBJS = ${SRCS:.c=.o}
 

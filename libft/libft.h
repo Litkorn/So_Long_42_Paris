@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:26:17 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/07/19 03:49:17 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/14 18:05:40 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_bzero(void *s, size_t n);
 
 //clean.c
 void	*ft_clean_str(char **str);
-void	ft_clean_tabtab(char	***tab);
+void	ft_clean_tab(char	***tab);
 
 //ft_is.c
 int		ft_isalnum(int c);
@@ -65,6 +65,14 @@ int		ft_put_char(unsigned char c);
 void	ft_put_convert(char c, unsigned int nb, int *len);
 void	ft_put_pointer(intptr_t nb, int *len);
 void	ft_put_str(char *str, int *len);
+
+//printf_err
+void	ft_convert_dec_er(long long int nb, int *len);
+int		ft_printf_err(const char *str, ...);
+int		ft_put_char_er(unsigned char c);
+void	ft_put_convert_er(char c, unsigned int nb, int *len);
+void	ft_put_pointer_er(intptr_t nb, int *len);
+void	ft_put_str_er(char *str, int *len);
 
 //put_fd.c
 void	ft_putchar_fd(char c, int fd);
@@ -107,5 +115,10 @@ int		ft_tolower(int c);
 
 //GNL
 char	*get_next_line(int fd);
+void	*ft_calloc_gnl(size_t count, size_t size);
+char	*ft_clean_gnl(char **str);
+char	*ft_strdup_gnl(char *s1);
+char	*ft_strjoin_gnl(char *str1, const char *str2, int k);
+size_t	ft_strlen_gnl(const char *s);
 
 #endif

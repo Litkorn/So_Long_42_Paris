@@ -6,38 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:38 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/06/07 16:47:11 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/14 18:06:50 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*ft_strjoin_gnl(char *str_static, const char *bufread, int k)
-{
-	char	*str3;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	str3 = malloc(sizeof(char)
-			* (ft_strlen(str_static) + ft_strlen(bufread) + 1));
-	if (!str3)
-		return (ft_clean_str(&str3));
-	while (str_static[i])
-	{
-		str3[i] = str_static[i];
-		i++;
-	}
-	while (bufread[j] && j < k)
-	{
-		str3[i + j] = bufread[j];
-		j++;
-	}
-	str3[i + j] = '\0';
-	free(str_static);
-	return (str3);
-}
 
 static int	ft_cut_end(char **buf, char **buf_static, int n)
 {
@@ -86,48 +59,48 @@ static char	*ft_return(char **buf_static)
 		{
 			i = ft_cut_end(&buf, buf_static, (i));
 			temp = *buf_static;
-			*buf_static = ft_strdup(&(*buf_static)[i]);
+			*buf_static = ft_strdup_gnl(&(*buf_static)[i]);
 			free(temp);
 			return (buf);
 		}
 	}
-	buf = ft_strdup(*buf_static);
-	ft_clean_str(buf_static);
+	buf = ft_strdup_gnl(*buf_static);
+	ft_clean_gnl(buf_static);
 	if (*buf == '\0')
-		ft_clean_str(&buf);
+		ft_clean_gnl(&buf);
 	return (buf);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*buf_static[1024];
+	static char	*buf_static;
 	char		*bufread;
 	int			i;
 
 	i = BUFFER_SIZE;
 	if (fd < 0 || fd > 1023 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buf_static[fd])
-		buf_static[fd] = ft_strdup("\0");
-	if (ft_buf_read(buf_static[fd]) == 1)
-		return (ft_return(&buf_static[fd]));
-	bufread = ft_calloc(sizeof(char), (size_t)(BUFFER_SIZE + 1));
+	if (!buf_static)
+		buf_static = ft_strdup_gnl("\0");
+	else if (ft_buf_read(buf_static) == 1)
+		return (ft_return(&buf_static));
+	bufread = ft_calloc_gnl(sizeof(char), (size_t)(BUFFER_SIZE + 1));
 	if (!bufread)
 		return (NULL);
 	while (i == BUFFER_SIZE && ft_buf_read(bufread) != 1)
 	{
 		i = read(fd, bufread, BUFFER_SIZE);
-		buf_static[fd] = ft_strjoin_gnl(buf_static[fd], bufread, i);
+		buf_static = ft_strjoin_gnl(buf_static, bufread, i);
 		if (i != -1)
 			bufread[i] = '\0';
 	}
-	ft_clean_str(&bufread);
-	return (ft_return(&buf_static[fd]));
+	ft_clean_gnl(&bufread);
+	return (ft_return(&buf_static));
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
-	int	fd = open("test.txt", O_RDONLY);
+	int	fd = open("../test.ber", O_RDONLY);
 	char *str;
 
 	str = get_next_line(fd);

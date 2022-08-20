@@ -6,7 +6,7 @@
 #    By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 15:36:12 by cleibeng          #+#    #+#              #
-#    Updated: 2022/07/19 04:43:47 by cleibeng         ###   ########.fr        #
+#    Updated: 2022/08/14 18:05:19 by cleibeng         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,14 @@ SRCS = ft_atoi_itoa.c\
 	   ft_strtrim.c\
 	   ft_tolow_upper.c\
 	   get_next_line.c\
+	   get_next_line_utils.c\
 	   ft_printf.c\
 	   ft_printf_putstrchar.c\
 	   ft_printf_putnbr.c\
+	   ft_printf_err.c\
+	   ft_printf_err_putstrchar.c\
+	   ft_printf_err_putnbr.c\
+
 
 OBJS = ${SRCS:.c=.o}
 
@@ -40,10 +45,10 @@ RM = rm -f
 
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 
 .c.o:
-		${CC} ${FLAGS} -g -c $< -o ${<:.c=.o}
+		${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 		${AR} ${NAME} ${OBJS}
