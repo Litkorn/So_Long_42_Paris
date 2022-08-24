@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:33:17 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/24 16:52:45 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:00:02 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,3 +111,4 @@ int	get_map(char *path, t_data *d)
 	}
 	return (ERR_FD);
 }
+//test
