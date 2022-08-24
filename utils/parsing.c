@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:35:13 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/21 16:09:35 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/24 15:58:57 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	parse_name(char **av)
 			&& av[1][i - 3] == '.')
 			return (0);
 	}
-	return (1);
+	return (ERR_FILE);
 }
 
 int	ft_parsing(char **av, t_data *d)
@@ -36,10 +36,10 @@ int	ft_parsing(char **av, t_data *d)
 	int	mp;
 	int	nm;
 
-	if (parse_name(av) == 1)
-		return (1);
+	if (parse_name(av) == ERR_FILE)
+		return (ERR_FILE);
 	mp = get_map(av[1], d);
-	if (mp == 3 || mp == 2)
+	if (mp == ERR_FD || mp == ERR_G_MAP)
 		return (mp);
 	nm = parse_map(d);
 	if (nm != 0)

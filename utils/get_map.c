@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:33:17 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/24 13:53:47 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:52:45 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	*ft_strdup_so_l(const char *s1)
 	return (NULL);
 }
 
-static void	alloc_map(char *path, t_data *d)
+static int	alloc_map(char *path, t_data *d)
 {
 	char	*temp;
 	int		i;
@@ -48,7 +48,7 @@ static void	alloc_map(char *path, t_data *d)
 	if (fd < 0)
 	{
 		d->map = NULL;
-		return ;
+		return (ERR_FD);
 	}
 	temp = get_next_line(fd);
 	while (temp != NULL)
@@ -60,40 +60,54 @@ static void	alloc_map(char *path, t_data *d)
 	free(temp);
 	close(fd);
 	d->map = malloc((sizeof(char *) * (i + 1)));
+	return (0);
 }
 
-/*static void	get_part_2(int fd, t_data *d)
+static int	get_part_2(int fd, t_data *d)
 {
+	size_t	i;
+	char	*temp;
 
-}*/
+	i = 0;
+	temp = NULL;
+	temp = get_next_line(fd);
+	if (!temp)
+		return (1);
+	d->map[0] = ft_strdup_so_l(temp);
+	while (temp != NULL)
+	{
+		free(temp);
+		i++;
+		temp = get_next_line(fd);
+		d->map[i] = ft_strdup_so_l(temp);
+	}
+	free(temp);
+	d->map[i] = NULL;
+	if (i != ft_tablen(d->map))
+		return (1);
+	return (0);
+}
 
 int	get_map(char *path, t_data *d)
 {
-	char	*temp;
 	int		fd;
-	int		i;
 
-	temp = NULL;
-	i = 0;
-	alloc_map(path, d);
-	if (d->map)
+	if (alloc_map(path, d) != ERR_FD)
 	{
-		fd = open(path, O_RDONLY);
-		if (fd < 0)
-			return (2);
-		temp = get_next_line(fd);
-		d->map[0] = ft_strdup_so_l(temp);
-		while (temp != NULL)
+		if (d->map)
 		{
-			free(temp);
-			i++;
-			temp = get_next_line(fd);
-			d->map[i] = ft_strdup_so_l(temp);
+			fd = open(path, O_RDONLY);
+			if (fd < 0)
+				return (ERR_FD);
+			if (get_part_2(fd, d) == 1)
+			{
+				close(fd);
+				return (ERR_G_MAP);
+			}
+			close(fd);
+			return (0);
 		}
-		free(temp);
-		d->map[i] = NULL;
-		close(fd);
-		return (0);
+		return (ERR_G_MAP);
 	}
-	return (3);
+	return (ERR_FD);
 }

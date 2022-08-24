@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 16:33:00 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/20 18:02:15 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:23:08 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	check_content_map(t_data *d)
 {
 	get_content(d);
 	if (d->p == 0 || d->e == 0 || d->co == 0)
-		return (8);
+		return (ERR_MISS);
+	if (d->p > 1 || d->e > 1)
+		return (ERR_2_MUCH);
 	return (0);
 }

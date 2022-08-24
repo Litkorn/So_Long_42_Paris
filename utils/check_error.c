@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:52:56 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/21 14:42:30 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:39:51 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,27 @@
 
 int	check_error(int e)
 {
-	if (e == 1)
-		ft_printf_err("Error\nFile is not recognized.\n");
-	if (e == 2)
-		ft_printf_err("Error\nFile descriptor attribution failed.\n");
-	if (e == 3)
-		ft_printf_err("Error\nMap attribution failed.\n");
-	if (e == 4)
-		ft_printf_err("Error\nWindow initialisation failed.\n");
-	if (e == 5)
-		ft_printf_err("Error\nMap is not valid: Invalid char in map.\n");
-	if (e == 6)
-		ft_printf_err("Error\nMap is not valid: Shape not valid.\n");
-	if (e == 7)
-		ft_printf_err("Error\nMap is not valid: Not closed by walls.\n");
-	if (e == 8)
-		ft_printf_err("Error\nMap is not valid: Map is missing something.\n");
-	if (e == 9)
-		ft_printf_err("Error\nNo valid path in map.\n");
-	if (e == 10)
-		ft_printf_err("Error\nMlx initialisation failed.\n");
-	//if e > 10 return (error_suite)
+	if (e == ERR_FILE)
+		ft_printf_err(err_file);
+	if (e == ERR_FD)
+		ft_printf_err(err_fd);
+	if (e == ERR_G_MAP)
+		ft_printf_err(err_g_map);
+	if (e == ERR_CHAR)
+		ft_printf_err(err_char);
+	if (e == ERR_SHAPE)
+		ft_printf_err(err_shape);
+	if (e == ERR_WALLS)
+		ft_printf_err(err_walls);
+	if (e == ERR_MISS)
+		ft_printf_err(err_miss);
+	if (e == ERR_2_MUCH)
+		ft_printf_err(err_2_much);
+	if (e == ERR_PATH)
+		ft_printf_err(err_path);
+	if (e == ERR_MLX)
+		ft_printf_err(err_mlx);
+	if (e == ERR_WIN)
+		ft_printf_err(err_win);
 	return (e);
 }

@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:48:19 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/21 19:27:54 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:21:02 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ int	check_path(t_data *d)
 	get_pos(d, &p);
 	do_while(&p, 1);
 	if (p.e < 1 || p.c != d->co)
-		return (1);
+		return (ERR_PATH);
 	return (0);
 }

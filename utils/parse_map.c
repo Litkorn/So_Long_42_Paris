@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 15:21:24 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/21 19:29:06 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:20:34 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	if_rectangle(t_data *d)
 	{
 		i = ft_strlen(d->map[x]);
 		if (i != j)
-			return (6);
+			return (ERR_SHAPE);
 		j = i;
 		x++;
 	}
@@ -54,7 +54,7 @@ static int	check_char(t_data *d)
 		}
 	}
 	if (d->map[i] != NULL)
-		return (5);
+		return (ERR_CHAR);
 	return (0);
 }
 
@@ -75,21 +75,24 @@ static int	check_walls(t_data *d)
 		j++;
 	if (d->map[0][j] != '1' || d->map[x - 1][j] != '1'
 		|| d->map[i][0] != '1' || d->map[i][y - 1] != '1')
-		return (7);
+		return (ERR_WALLS);
 	return (0);
 }
 
 int	parse_map(t_data *d)
 {
+	int mp;
+
 	if (check_char(d) != 0)
-		return (5);
+		return (ERR_CHAR);
 	if (if_rectangle(d) != 0)
-		return (6);
+		return (ERR_SHAPE);
 	if (check_walls(d) != 0)
-		return (7);
-	if (check_content_map(d) != 0)
-		return (8);
+		return (ERR_WALLS);
+	mp = check_content_map(d);
+	if (mp != 0)
+		return (mp);
 	if (check_path(d) != 0)
-		return (9);
+		return (ERR_PATH);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 04:25:51 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/24 13:57:43 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:49:57 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_lib.h"
 
-static int	init_win(t_vars *v, t_data *d)
+/*static int	init_win(t_vars *v, t_data *d)
 {
 	v->mlx = NULL;
 	v->win = NULL;
@@ -24,7 +24,7 @@ static int	init_win(t_vars *v, t_data *d)
 	if (!v->win)
 		return (5);
 	return (0);
-}
+}*/
 
 static int	clean_all(t_vars *v, t_data *d)
 {
@@ -66,13 +66,14 @@ int	main(int ac, char **av)
 		exit (0);
 	}
 	if (check_error(ft_parsing(av, &d)) != 0
-		|| check_error(init_win(&v, &d) != 0))
+		/*|| check_error(init_win(&v, &d) != 0)*/)
 	{
 		clean_all(&v, &d);
 		exit(0);
 	}
+	clean_all(&v, &d);
 	//mlx_hook(v.win, 02, (1L<<0), key_press, &v);
-	mlx_hook(v.win, 17, 0, clean_all, &v);
-	mlx_loop(v.mlx);
+	/*mlx_hook(v.win, 17, 0, clean_all, &v);
+	mlx_loop(v.mlx);*/
 	exit(0);
 }
