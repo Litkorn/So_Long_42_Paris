@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:52:56 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/20 16:44:08 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:42:30 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int	check_error(int e)
 		ft_printf_err("Error\nNo valid path in map.\n");
 	if (e == 10)
 		ft_printf_err("Error\nMlx initialisation failed.\n");
+	//if e > 10 return (error_suite)
 	return (e);
 }

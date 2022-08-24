@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:35:13 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/19 11:50:45 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/21 16:09:35 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,6 @@ static int	parse_name(char **av)
 	return (1);
 }
 
-/*static int parse_path(t_data *d)
-{
-
-}
-doit verifier si un path est possible ( et donc savoir si tous les collectibles
-sont
-recoltables sur le chemin )
-
-*/
-
 int	ft_parsing(char **av, t_data *d)
 {
 	int	mp;
@@ -54,7 +44,5 @@ int	ft_parsing(char **av, t_data *d)
 	nm = parse_map(d);
 	if (nm != 0)
 		return (nm);
-	/*if parse_path
-	*/
 	return (0);
 }

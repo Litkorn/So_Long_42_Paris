@@ -6,7 +6,7 @@
 #    By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 15:36:12 by cleibeng          #+#    #+#              #
-#    Updated: 2022/08/14 18:05:19 by cleibeng         ###   ########.fr        #
+#    Updated: 2022/08/21 17:51:51 by cleibeng         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ RM = rm -f
 
 NAME = libft.a
 
-FLAGS = -g -Wall -Wextra -Werror
+FLAGS = -g3 -Wall -Wextra -Werror
 
 .c.o:
 		${CC} ${FLAGS} -c $< -o ${<:.c=.o}

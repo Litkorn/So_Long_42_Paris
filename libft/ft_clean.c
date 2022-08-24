@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:17:45 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/06/07 16:47:01 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:56:46 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	*ft_clean_str(char **str)
 	return (NULL);
 }
 
-void	ft_clean_tab(char	***tab)
+void	ft_clean_tab(char	**tab)
 {
 	int	i;
 
 	i = 0;
-	while ((*tab)[i])
+	while (tab[i])
 	{
-		free(*tab[i]);
+		free(tab[i]);
 		i++;
 	}
-	free(*tab);
+	free(tab);
 }

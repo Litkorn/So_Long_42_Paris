@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 04:26:22 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/20 16:34:15 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/21 18:24:47 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,8 @@ typedef struct s_data
 {
 	int		pos_x;
 	int		pos_y;
-	int		y;
-	int		x;
 	int		img_x;
 	int		img_y;
-	int		d;
 	int		e;
 	int		p;
 	int		co;
@@ -48,6 +45,14 @@ typedef struct s_vars
 	void	*img;
 }				t_vars;
 
+typedef struct s_path
+{
+	int		c;
+	int		p;
+	int		e;
+	char	**mp;
+}				t_path;
+
 //parsing.c
 int		ft_parsing(char **av, t_data *d);
 //get_map.c
@@ -56,6 +61,10 @@ int		get_map(char *path, t_data *d);
 int		parse_map(t_data *d);
 //check_content.c
 int		check_content_map(t_data *d);
+//check_paths.c
+int		check_path(t_data *d);
+//check_paths_utils.c
+int		check_around(t_path *p, int i, int j);
 
 //check_error.c
 int		check_error(int e);

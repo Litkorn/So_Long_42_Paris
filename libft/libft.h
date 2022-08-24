@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:26:17 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/14 18:05:40 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:57:06 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_bzero(void *s, size_t n);
 
 //clean.c
 void	*ft_clean_str(char **str);
-void	ft_clean_tab(char	***tab);
+void	ft_clean_tab(char	**tab);
 
 //ft_is.c
 int		ft_isalnum(int c);

@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:29:21 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/06/07 16:47:08 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/21 12:35:33 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,19 @@ char	*ft_strdup(const char *s1)
 	char	*s2;
 
 	i = 0;
-	n = ft_strlen(s1) + 1;
-	s2 = malloc(n * sizeof(char));
-	if (!s2)
-		return (NULL);
-	while (s1[i])
+	if (s1 != NULL)
 	{
-		s2[i] = s1[i];
-		i++;
+		n = ft_strlen(s1) + 1;
+		s2 = malloc(n * sizeof(char));
+		if (!s2)
+			return (NULL);
+		while (s1[i])
+		{
+			s2[i] = s1[i];
+			i++;
+		}
+		s2[i] = '\0';
+		return (s2);
 	}
-	s2[i] = '\0';
-	return (s2);
+	return (NULL);
 }
