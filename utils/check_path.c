@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:48:19 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/24 16:21:02 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:17:33 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,7 @@ static void	get_pos(t_data *d, t_path *p)
 	p->e = 0;
 	p->mp = NULL;
 	p->mp = d->map;
-	while (p->mp[i] != NULL)
-	{
-		if (p->mp[i][j] == 'P')
-		{
-			d->pos_x = i;
-			d->pos_y = j;
-			p->mp[i][j] = '3';
-		}
-		j++;
-		if (j == ft_strlen(p->mp[i]))
-		{
-			i++;
-			j = 0;
-		}
-	}
+	p->mp[d->pos_x][d->pos_y] = '3';
 }
 
 static void	do_while(t_path *p, int check)

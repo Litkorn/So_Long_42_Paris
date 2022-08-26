@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 16:33:00 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/24 16:23:08 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:15:49 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	get_content(t_data *d)
 			d->p++;
 			d->pos_x = i;
 			d->pos_y = j;
+			d->map[i][j] = '0';
 		}
 		i++;
 		if (i == (int)ft_tablen(d->map))
