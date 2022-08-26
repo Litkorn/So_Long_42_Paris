@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 15:21:24 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/24 16:20:34 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:51:32 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static int	check_walls(t_data *d)
 
 int	parse_map(t_data *d)
 {
-	int mp;
+	int	mp;
 
 	if (check_char(d) != 0)
 		return (ERR_CHAR);

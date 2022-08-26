@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:37:32 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/24 16:40:37 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:55:30 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@
 # define ERR_PATH 9
 # define ERR_MLX 10
 # define ERR_WIN 11
-# define err_file "Error\nFile is not recognized.\n"
-# define err_fd "Error\nFile descriptor attribution failed.\n"
-# define err_g_map "Error\nMap attribution failed.\n"
-# define err_char "Error\nMap is not valid: Invalid char in map.\n"
-# define err_shape "Error\nMap is not valid: Shape not valid.\n"
-# define err_walls "Error\nMap is not valid: Not closed by walls.\n"
-# define err_miss "Error\nMap is not valid: Map is missing something.\n"
-# define err_2_much "Error\nMap is not valid: Too much exits or player position.\n"
-# define err_path "Error\nNo valid path in map.\n"
-# define err_mlx "Error\nMlx initialisation failed.\n"
-# define err_win "Error\nWindow initialisation failed.\n"
+# define ER_FILE "Error\nFile is not recognized.\n"
+# define ER_FD "Error\nFile descriptor attribution failed.\n"
+# define ER_G_MAP "Error\nMap attribution failed.\n"
+# define ER_CHAR "Error\nMap is not valid: Invalid char in map.\n"
+# define ER_SHAPE "Error\nMap is not valid: Shape not valid.\n"
+# define ER_WALLS "Error\nMap is not valid: Not closed by walls.\n"
+# define ER_MISS "Error\nMap is not valid: Map is missing something.\n"
+# define ER_2_MUCH "Error\nMap is not valid: Too much exits or player position.\n"
+# define ER_PATH "Error\nNo valid path in map.\n"
+# define ER_MLX "Error\nMlx initialisation failed.\n"
+# define ER_WIN "Error\nWindow initialisation failed.\n"
 
 typedef struct s_data
 {
@@ -74,4 +74,4 @@ typedef struct s_path
 	char	**mp;
 }				t_path;
 
-# endif
+#endif

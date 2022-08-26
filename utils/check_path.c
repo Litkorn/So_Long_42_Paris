@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:48:19 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 12:17:33 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:48:53 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,23 @@
 static void	get_pos(t_data *d, t_path *p)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
 	p->c = 0;
 	p->e = 0;
 	p->mp = NULL;
-	p->mp = d->map;
+	p->mp = malloc(sizeof(char *) * (ft_tablen(d->map) + 1));
+	if (!p->mp)
+	{
+		p->mp = NULL;
+		return ;
+	}
+	while (d->map[i] != NULL)
+	{
+		p->mp[i] = ft_strdup(d->map[i]);
+		i++;
+	}
+	p->mp[i] = NULL;
 	p->mp[d->pos_x][d->pos_y] = '3';
 }
 
@@ -60,6 +69,7 @@ int	check_path(t_data *d)
 
 	get_pos(d, &p);
 	do_while(&p, 1);
+	ft_clean_tab(p.mp);
 	if (p.e < 1 || p.c != d->co)
 		return (ERR_PATH);
 	return (0);
