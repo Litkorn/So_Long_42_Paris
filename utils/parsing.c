@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:35:13 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/24 15:58:57 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:24:36 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ int	ft_parsing(char **av, t_data *d)
 	nm = parse_map(d);
 	if (nm != 0)
 		return (nm);
+	d->img_y = ft_tablen(d->map);
+	d->img_x = ft_strlen(d->map[1]);
 	return (0);
 }

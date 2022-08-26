@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:37:32 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 12:55:30 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 15:53:41 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 # define ER_MLX "Error\nMlx initialisation failed.\n"
 # define ER_WIN "Error\nWindow initialisation failed.\n"
 
+
 typedef struct s_data
 {
 	int		pos_x;
@@ -74,4 +75,9 @@ typedef struct s_path
 	char	**mp;
 }				t_path;
 
+typedef struct a_vars
+{
+	t_data	d;
+	t_vars	v;
+}				a_vars;
 #endif

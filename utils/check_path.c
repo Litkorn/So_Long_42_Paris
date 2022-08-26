@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:48:19 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 12:48:53 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:33:10 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	get_pos(t_data *d, t_path *p)
 		i++;
 	}
 	p->mp[i] = NULL;
-	p->mp[d->pos_x][d->pos_y] = '3';
+	p->mp[d->pos_y][d->pos_x] = '3';
 }
 
 static void	do_while(t_path *p, int check)

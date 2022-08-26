@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 16:33:00 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 12:15:49 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/26 16:35:05 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static void	get_content(t_data *d)
 		if (d->map[i][j] == 'P')
 		{
 			d->p++;
-			d->pos_x = i;
-			d->pos_y = j;
+			d->pos_x = j;
+			d->pos_y = i;
 			d->map[i][j] = '0';
 		}
 		i++;
