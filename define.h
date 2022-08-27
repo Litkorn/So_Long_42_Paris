@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:37:32 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/27 13:41:01 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/27 15:55:48 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,31 +49,34 @@
 
 typedef struct s_img
 {
-	char	*char_r;
-	char	*char_l;
-	char	*char_u;
-	char	*char_d;
-	char	*co_1;
-	char	*co_2;
-	char	*co_3;
-	char	*co_4;
-	char	*exit_1;
-	char	*exit_2;
-	char	*ground;
-	char	*wall_l;
-	char	*wall_r;
-	char	*wall_u;
-	char	*wall_d;
-	char	*wall_c;
-	char	*wall_pyl;
+	int		x;
+	int		y;
+	void	*char_r;
+	void	*char_l;
+	void	*char_u;
+	void	*char_d;
+	void	*co_1;
+	void	*co_2;
+	void	*co_3;
+	void	*co_4;
+	void	*exit_1;
+	void	*exit_2;
+	void	*ground;
+	void	*wall_l;
+	void	*wall_r;
+	void	*wall_u;
+	void	*wall_d;
+	void	*wall_c;
+	void	*wall_pyl;
+	void	*patrol;
 }				t_img;
 
 typedef struct s_data
 {
-	int		pos_x;
-	int		pos_y;
 	int		img_x;
 	int		img_y;
+	int		pos_x;
+	int		pos_y;
 	int		e;
 	int		p;
 	int		co;
@@ -84,7 +87,6 @@ typedef struct s_vars
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
 }				t_vars;
 
 typedef struct s_path
@@ -99,5 +101,6 @@ typedef struct a_vars
 {
 	t_data	d;
 	t_vars	v;
+	t_img	i;
 }				a_vars;
 #endif

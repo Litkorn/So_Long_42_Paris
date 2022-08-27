@@ -6,7 +6,7 @@
 #    By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 03:41:14 by cleibeng          #+#    #+#              #
-#    Updated: 2022/08/26 15:56:46 by cleibeng         ###   ########.fr        #
+#    Updated: 2022/08/27 15:26:41 by cleibeng         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS = so_long.c\
 	   utils/check_content.c\
 	   utils/check_path.c\
 	   utils/check_path_utils.c\
+	   utils/init_struc.c\
 
 OBJS = ${SRCS:.c=.o}
 
