@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 04:25:51 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 17:54:50 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:27:50 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ static int	init_win(t_vars *v, t_data *d)
 
 static int	clean_all(a_vars *a)
 {
-	printf("debut\n");
 	if (a->d.map[1] != NULL)
 		ft_clean(&a->d);
 	if (a->v.win)
 		ft_destroy(&a->v);//destroy img, win puis display)
-	printf("fin\n");
 	exit(0);
 }
 
@@ -49,6 +47,7 @@ static void	init_data(t_data *d)
 }
 int	key_press(int key, a_vars *a)
 {
+//	(void) a;
 	if (key == ESC)
 		clean_all(a);
 	return (1);
@@ -75,8 +74,9 @@ int	main(int ac, char **av)
 	}
 	a.d = d;
 	a.v = v;
-	v.img = mlx_xpm_file_to_image(&a, "../test.xpm", &d.img_x, &d.img_y);
-	mlx_put_image_to_window(&a, v.win, v.img, 2, 2);
+	v.img = mlx_xpm_file_to_image(v.mlx, "test.xpm", &d.img_x, &d.img_y);
+	mlx_put_image_to_window(v.mlx, v.win, v.img, 0, 0);
+	mlx_put_image_to_window(v.mlx, v.win, v.img, d.pos_x * 64, d.pos_y * 64);
 	mlx_hook(v.win, 02, (1L<<0), key_press, &a);
 	mlx_hook(v.win, 17, 0, clean_all, &a);
 	mlx_loop(v.mlx);

@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 14:37:32 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 15:53:41 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:41:01 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,26 @@
 # define ER_MLX "Error\nMlx initialisation failed.\n"
 # define ER_WIN "Error\nWindow initialisation failed.\n"
 
+typedef struct s_img
+{
+	char	*char_r;
+	char	*char_l;
+	char	*char_u;
+	char	*char_d;
+	char	*co_1;
+	char	*co_2;
+	char	*co_3;
+	char	*co_4;
+	char	*exit_1;
+	char	*exit_2;
+	char	*ground;
+	char	*wall_l;
+	char	*wall_r;
+	char	*wall_u;
+	char	*wall_d;
+	char	*wall_c;
+	char	*wall_pyl;
+}				t_img;
 
 typedef struct s_data
 {
