@@ -6,11 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 16:33:00 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 16:35:05 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:36:21 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
 static void	get_content(t_data *d)
 {

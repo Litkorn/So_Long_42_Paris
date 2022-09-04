@@ -6,13 +6,13 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 11:07:56 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/27 17:35:24 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/04 16:40:59 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
-static void	dest_text2(a_vars *a)
+static void	dest_text2(t_all *a)
 {
 	if (a->i.wall_c)
 		mlx_destroy_image(a->v.mlx, a->i.wall_c);
@@ -28,9 +28,9 @@ static void	dest_text2(a_vars *a)
 		mlx_destroy_image(a->v.mlx, a->i.wall_u);
 }
 
-static void	dest_textures(a_vars *a)
+static void	dest_textures(t_all *a)
 {
-	if (a->i.char_d)
+	if (a->i.char_d != NULL)
 		mlx_destroy_image(a->v.mlx, a->i.char_d);
 	if (a->i.char_l)
 		mlx_destroy_image(a->v.mlx, a->i.char_l);
@@ -64,7 +64,7 @@ void	ft_destroy(t_vars *v)
 	free(v->mlx);
 }
 
-int	clean_all(a_vars *a)
+int	clean_all(t_all *a)
 {
 	if (a->d.map)
 		ft_clean_tab(a->d.map);

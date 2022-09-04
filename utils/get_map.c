@@ -6,11 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:33:17 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 12:49:21 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:36:41 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
 static char	*ft_strdup_so_l(const char *s1)
 {
@@ -34,6 +34,20 @@ static char	*ft_strdup_so_l(const char *s1)
 		return (s2);
 	}
 	return (NULL);
+}
+
+static int	check_dir(char *path)
+{
+	int	fd;
+
+	fd = open(path, __O_DIRECTORY);
+	if (fd > 0)
+	{
+		close(fd);
+		return (ERR_FD);
+	}
+	else
+		return (0);
 }
 
 static int	alloc_map(char *path, t_data *d)
@@ -92,22 +106,26 @@ int	get_map(char *path, t_data *d)
 {
 	int		fd;
 
-	if (alloc_map(path, d) != ERR_FD)
+	if (check_dir(path) == 0)
 	{
-		if (d->map)
+		if (alloc_map(path, d) != ERR_FD)
 		{
-			fd = open(path, O_RDONLY);
-			if (fd < 0)
-				return (ERR_FD);
-			if (get_part_2(fd, d) == 1)
+			if (d->map)
 			{
+				fd = open(path, O_RDONLY);
+				if (fd < 0)
+					return (ERR_FD);
+				if (get_part_2(fd, d) == 1)
+				{
+					close(fd);
+					return (ERR_G_MAP);
+				}
 				close(fd);
-				return (ERR_G_MAP);
+				return (0);
 			}
-			close(fd);
-			return (0);
+			return (ERR_G_MAP);
 		}
-		return (ERR_G_MAP);
+		return (ERR_FD);
 	}
 	return (ERR_FD);
 }

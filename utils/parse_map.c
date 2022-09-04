@@ -6,11 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 15:21:24 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 14:39:03 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:36:53 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
 static int	if_rectangle(t_data *d)
 {

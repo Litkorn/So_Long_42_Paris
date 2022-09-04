@@ -6,11 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 15:21:51 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/21 19:28:29 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:36:28 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
 static void	check_char(t_path *p, char c)
 {

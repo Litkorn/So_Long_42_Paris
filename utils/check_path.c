@@ -6,11 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:48:19 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 16:33:10 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:36:32 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
 static void	get_pos(t_data *d, t_path *p)
 {

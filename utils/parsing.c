@@ -6,11 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:35:13 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 16:24:36 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:36:57 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
 /* parsing du nom de fichiers
 parsing de la map
@@ -25,7 +25,7 @@ static int	parse_name(char **av)
 	{
 		i--;
 		if (av[1][i] == 'r' && av[1][i - 1] == 'e' && av[1][i - 2] == 'b'
-			&& av[1][i - 3] == '.')
+			&& av[1][i - 3] == '.' && av[1][i - 4] != '/')
 			return (0);
 	}
 	return (ERR_FILE);

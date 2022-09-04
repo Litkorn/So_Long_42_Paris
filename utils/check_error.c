@@ -6,11 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:52:56 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/26 12:55:05 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:36:24 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
 int	check_error(int e)
 {

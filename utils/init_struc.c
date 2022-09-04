@@ -6,28 +6,53 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 14:47:28 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/08/27 17:36:04 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/09/01 14:52:54 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_lib.h"
+#include "../include/so_long_lib.h"
 
-void	init_data(t_data *d)
+static void	int_txt(t_all *a)
 {
-	d->map = NULL;
-	d->img_x = 0;
-	d->img_y = 0;
-	d->co = 0;
-	d->e = 0;
-	d->p = 0;
-	d->pos_x = 0;
-	d->pos_y = 0;
+	a->i.char_r = NULL;
+	a->i.char_d = NULL;
+	a->i.char_l = NULL;
+	a->i.char_u = NULL;
+	a->i.co_1 = NULL;
+	a->i.co_2 = NULL;
+	a->i.co_3 = NULL;
+	a->i.co_4 = NULL;
+	a->i.exit_1 = NULL;
+	a->i.exit_2 = NULL;
+	a->i.ground = NULL;
+	a->i.patrol = NULL;
+	a->i.wall_c = NULL;
+	a->i.wall_d = NULL;
+	a->i.wall_l = NULL;
+	a->i.wall_pyl = NULL;
+	a->i.wall_r = NULL;
+	a->i.wall_u = NULL;
+}
+
+void	init_data(t_all *a)
+{
+	a->v.mlx = NULL;
+	a->v.win = NULL;
+	a->d.map = NULL;
+	a->d.img_x = 0;
+	a->d.img_y = 0;
+	a->d.co = 0;
+	a->d.co_c = 0;
+	a->d.e = 0;
+	a->d.p = 0;
+	a->d.pos_x = 0;
+	a->d.pos_y = 0;
+	a->d.walk = 0;
+	int_txt(a);
 }
 
 int	init_win(t_vars *v, t_data *d)
 {
-	v->mlx = NULL;
-	v->win = NULL;
 	v->mlx = mlx_init();
 	if (!v->mlx)
 		return (4);
@@ -37,41 +62,29 @@ int	init_win(t_vars *v, t_data *d)
 	return (0);
 }
 
-void	init_img(t_img *i)
-{
-	i->char_d = NULL;
-	i->char_l = NULL;
-	i->char_r = NULL;
-	i->char_u = NULL;
-	i->co_1 = NULL;
-	i->co_2 = NULL;
-	i->co_3 = NULL;
-	i->exit_1 = NULL;
-	i->exit_2 = NULL;
-	i->ground = NULL;
-	i->patrol = NULL;
-	i->wall_c = NULL;
-	i->wall_d = NULL;
-	i->wall_l = NULL;
-	i->wall_pyl = NULL;
-	i->wall_r = NULL;
-	i->wall_u = NULL;
-
-}
-static void	*xpm_to_img(a_vars *a, char *path)
+static void	*xpm_to_img(t_all *a, char *path)
 {
 	void	*img;
+	int		fd;
 
-	img = mlx_xpm_file_to_image(a->v.mlx, path, &a->i.x, &a->i.y);
-	if (!img)
+	fd = open(path, O_RDONLY);
+	if (fd >= 0)
 	{
-		ft_printf_err("Error\nFail while loading textures\n");
-		clean_all(a);
+		img = mlx_xpm_file_to_image(a->v.mlx, path, &a->i.x, &a->i.y);
+		if (!img)
+		{
+			ft_printf_err("Error\nFail while loading textures\n");
+			clean_all(a);
+		}
+		close(fd);
+		return (img);
 	}
-	return (img);
+	else
+		clean_all(a);
+	return (0);
 }
 
-void	init_textures(a_vars *a)
+void	init_textures(t_all *a)
 {
 	a->i.char_r = xpm_to_img(a, "txt/char_r.xpm");
 	a->i.char_d = xpm_to_img(a, "txt/char_d.xpm");
