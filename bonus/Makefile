@@ -16,7 +16,7 @@ INCLUDE = -I /usr/include\
 	  -I mlx_linux\
 	  -I libft
 
-MINILBX = -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
+MINILBX = -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm
 
 SRCS = utils/so_long.c\
 	   utils/check_error.c\
